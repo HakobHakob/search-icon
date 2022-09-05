@@ -16,7 +16,7 @@ function App() {
         />
       </Styled.Tools>
 
-      <Styled.ListDiv >
+      <Styled.ListDiv>
         {JSONDATA.filter((data) => {
           if (searchTerm === "") {
             return data

@@ -19,6 +19,7 @@ export const Tools = styled.div`
 `
 export const ListDiv = styled.div`
   display: grid;
+  width:500px;
   height: 400px;
   overflow: scroll;
   grid-template-columns: auto auto auto;
