@@ -26,9 +26,9 @@ function App() {
           ) {
             return data
           }
-        }).map((data, key) => {
+        }).map((data, i) => {
           return (
-            <Styled.List key={key}>
+            <Styled.List key={i}>
               {data.first_name}
               -
               <img src={data.src} width="20px" height="20px" alt="" />,
