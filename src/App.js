@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import JSONDATA from "./JSON/MOCK_DATA.json"
+import * as Styled from "./Search/Styled"
+import React, { useState } from "react"
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Styled.Main>
+      <Styled.Tools>
+        <Styled.Input
+          placeholder="Search..."
+          onChange={(e) => {
+            setSearchTerm(e.target.value)
+          }}
+        />
+      </Styled.Tools>
+
+      <Styled.ListDiv >
+        {JSONDATA.filter((data) => {
+          if (searchTerm === "") {
+            return data
+          }
+          if (
+            data.first_name.toLowerCase().includes(searchTerm.toLowerCase())
+          ) {
+            return data
+          }
+        }).map((data, key) => {
+          return (
+            <Styled.List key={key}>
+              {data.first_name}
+              -
+              <img src={data.src} width="20px" height="20px" alt="" />,
+            </Styled.List>
+          )
+        })}
+      </Styled.ListDiv>
+    </Styled.Main>
+  )
 }
 
-export default App;
+export default App
