@@ -4,9 +4,12 @@ import React, { useState, useEffect } from "react"
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
-  const [data, setData] = useState()
+  const [data, setData] = useState(JSONDATA)
   useEffect(() => {
     const changeTerm = setTimeout(() => {
+      if(searchTerm.length === 0){
+        setData(JSONDATA) 
+      }
       if (searchTerm.length >= 1) {
         const result = JSONDATA.filter((iconData) => {
           return iconData.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -32,9 +35,7 @@ function App() {
       </Styled.Tools>
 
       <Styled.ListDiv>
-        {JSONDATA.filter((term) => {
-          return term.name.toLowerCase().includes(searchTerm.toLowerCase())
-        }).map((termData, i) => {
+        {data.map((termData, i) => {
           return (
             <Styled.List key={i}>
               {termData.name}
