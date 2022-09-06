@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react"
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
   const [data, setData] = useState()
-
   useEffect(() => {
     const changeTerm = setTimeout(() => {
       if (searchTerm.length >= 1) {
