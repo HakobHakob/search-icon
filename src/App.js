@@ -17,21 +17,21 @@ function App() {
       </Styled.Tools>
 
       <Styled.ListDiv>
-        {JSONDATA.filter((data) => {
+        {JSONDATA.filter((term) => {
           if (searchTerm === "") {
-            return data
+            return term
           }
           if (
-            data.first_name.toLowerCase().includes(searchTerm.toLowerCase())
+            term.name.toLowerCase().includes(searchTerm.toLowerCase())
           ) {
-            return data
+            return term
           }
-        }).map((data, i) => {
+        }).map((termData, i) => {
           return (
             <Styled.List key={i}>
-              {data.first_name}
+              {termData.name}
               -
-              <img src={data.src} width="20px" height="20px" alt="" />,
+              <img src={termData.src} width="20px" height="20px" alt="" />,
             </Styled.List>
           )
         })}
