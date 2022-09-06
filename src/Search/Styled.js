@@ -13,6 +13,7 @@ export const Tools = styled.div`
   justify-content: start;
   align-items: center;
   padding: 10px;
+  height:25px;
   margin: 10px;
   border: 1px solid black;
   border-radius: 10px;
@@ -30,7 +31,7 @@ export const List = Tools
 
 export const Input = styled.input`
   width: 300px;
-  height: 40px;
+  height: 30px;
   font-size: 17px;
   outline: none;
   ::placeholder {
